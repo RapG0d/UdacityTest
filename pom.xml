@@ -29,6 +29,11 @@
             <artifactId>testng</artifactId>
             <version>6.11</version>
         </dependency>
+        <dependency>
+            <groupId>xalan</groupId>
+            <artifactId>xalan</artifactId>
+            <version>2.7.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -74,6 +79,18 @@
             </resource>
         </resources>
     </build>
+
+    <profiles>
+        <profile>
+            <id>chrome</id>
+            <properties>
+                <capabilities>/chrome.capabilities</capabilities>
+                <activation>
+                    <activeByDefault>true</activeByDefault>
+                </activation>
+            </properties>
+        </profile>
+    </profiles>
 
 
 

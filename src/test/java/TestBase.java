@@ -1,7 +1,8 @@
-import org.openqa.selenium.By;
+/*import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -19,17 +20,16 @@ public class TestBase {
 
 
 
-
     @BeforeSuite(alwaysRun = true)
     public void setup(){
         System.setProperty("webdriver.chrome.driver", "./src/main/resources/chromedriver.exe");
         driver = new ChromeDriver();
+       // WebDriverWait wait = new WebDriverWait(driver, 5);
         driver.manage().timeouts().pageLoadTimeout(10,TimeUnit.SECONDS);
         driver.manage().window().fullscreen();
         driver.get("https://www.udacity.com/");
 
     }
-
     @AfterSuite(alwaysRun = true)
     public void tearDown(){
         driver.quit();
@@ -37,12 +37,12 @@ public class TestBase {
 
     @BeforeMethod
     public void login(){
-        WebDriverWait wait = new WebDriverWait(driver, 5);
+
         WebElement signIN = driver.findElement(By.xpath("(//a[@title='Sign In'])[2]"));
-        wait.until(ExpectedConditions.elementToBeClickable(signIN));
+        new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(signIN));
         signIN.click();
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@type='email']")));
+        new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@type='email']")));
         WebElement inputlogin = driver.findElement(By.xpath("//input[@type='email']"));
         inputlogin.sendKeys("testmailforus9@gmail.com");
 
@@ -52,9 +52,10 @@ public class TestBase {
         WebElement submit = driver.findElement(By.xpath("//button[contains(@class, 'index--primary')]"));
         submit.click();
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@title = 'Logout']")));
+        new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@title = 'Logout']")));
         WebElement Logout = driver.findElement(By.xpath("//span[@title = 'Logout']"));
         Assert.assertTrue(Logout.isDisplayed());
+
 
 
     }
@@ -62,14 +63,15 @@ public class TestBase {
     @AfterMethod
     public void logout(){
 
-        new WebDriverWait(driver,5).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@title = 'Logout']")));
+        new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@title = 'Logout']")));
         WebElement Logout = driver.findElement(By.xpath("//span[@title = 'Logout']"));
         Logout.click();
 
-        new WebDriverWait(driver,5).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[@title = 'Get Started'])[2]")));
+        new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[@title = 'Get Started'])[2]")));
         WebElement GetStarted = driver.findElement(By.xpath(("(//a[@title = 'Get Started'])[2]")));
         Assert.assertTrue(GetStarted.isDisplayed());
     }
 
 
 }
+*/

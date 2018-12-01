@@ -1,3 +1,4 @@
+import Utils.TestBase;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -9,6 +10,24 @@ public class TestUdacity extends TestBase {
 
     @Test
     public void checkInfo(){
+
+
+        app.getUserHelper().accountAs(app.getUser());
+        Assert.assertEquals(app.getUser().getName(),"Mike");
+
+        Assert.assertEquals(app.getUser().getLastName(),"Lebowski");
+
+        Assert.assertEquals(app.getUser().getLogin(),"testmailforus9@gmail.com");
+
+
+
+
+
+
+
+
+
+        /*
         WebDriverWait wait = new WebDriverWait(driver,30);
         WebElement Settings = driver.findElement(By.xpath("//span[@title='Settings']"));
         wait.until(ExpectedConditions.elementToBeClickable(Settings));
@@ -28,7 +47,7 @@ public class TestUdacity extends TestBase {
 
         WebElement Email = driver.findElement(By.xpath("//input[@value='testmailforus9@gmail.com']"));
         String strngEmail = Email.getAttribute("value");
-        Assert.assertEquals("testmailforus9@gmail.com",strngEmail);
+        Assert.assertEquals("testmailforus9@gmail.com",strngEmail);*/
 
     }
 
