@@ -18,19 +18,18 @@ public class AccountPage extends Page {
     @FindBy(xpath = "//input[3]")
     WebElement emailField;
 
-    public AccountPage getName(String name){
+    public String getName(){
         wait.until(ExpectedConditions.visibilityOf(nameField));
-        nameField.getAttribute("value");
-        return this;
+        return nameField.getAttribute("value");
     }
 
-    public AccountPage getLastName(String lastName){
-        lastNameField.getAttribute("value");
-        return this;
+    public String getLastName(){
+        wait.until(ExpectedConditions.visibilityOf(lastNameField));
+        return lastNameField.getAttribute("value");
     }
 
-    public AccountPage getEmail(String email){
-        emailField.getAttribute("value");
-        return this;
+    public String getEmail(){
+        wait.until(ExpectedConditions.visibilityOf(emailField));
+        return emailField.getAttribute("value");
     }
 }

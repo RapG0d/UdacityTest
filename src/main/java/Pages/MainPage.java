@@ -3,6 +3,7 @@ package Pages;
 import Managers.PageManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class MainPage extends Page {
 
@@ -12,6 +13,7 @@ public class MainPage extends Page {
     WebElement signIN;
 
     public void signInButtonClick(){
+        wait.until(ExpectedConditions.elementToBeClickable(signIN));
        signIN.click();
     }
 }

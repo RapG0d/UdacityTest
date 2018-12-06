@@ -12,8 +12,16 @@ public class HomePage extends Page {
     @FindBy(xpath = "//span[@title='Settings']")
     WebElement settings;
 
+    @FindBy(xpath = "//span[@title='Logout']")
+    WebElement Logout;
+
     public void settingsButtonClick(){
         wait.until(ExpectedConditions.elementToBeClickable(settings));
         settings.click();
+    }
+
+    public void logoutButtonClick(){
+        wait.until(ExpectedConditions.elementToBeClickable(Logout));
+        Logout.click();
     }
 }

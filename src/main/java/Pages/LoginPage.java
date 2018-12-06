@@ -25,11 +25,13 @@ public class LoginPage extends Page {
     }
 
     public LoginPage inputPassword(String password){
+        wait.until(ExpectedConditions.elementToBeClickable(passwordField));
         passwordField.sendKeys(password);
         return this;
     }
 
     public  void loginButtonClick(){
+        wait.until(ExpectedConditions.elementToBeClickable(loginButton));
         loginButton.click();
     }
 }

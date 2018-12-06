@@ -13,4 +13,9 @@ public class NavigationHelper extends PageManager {
         homePage
                 .settingsButtonClick();
     }
+
+    public void logout(){
+        homePage
+                .logoutButtonClick();
+    }
 }

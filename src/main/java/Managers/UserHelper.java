@@ -13,10 +13,4 @@ public class UserHelper extends PageManager {
                 .loginButtonClick();
     }
 
-    public void accountAs(User user){
-        accountPage
-                .getName(user.getName())
-                .getLastName(user.getLastName())
-                .getEmail(user.getLogin());
-    }
 }

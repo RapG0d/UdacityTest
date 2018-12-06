@@ -28,4 +28,9 @@ public class TestBase {
         app.getNavigationHelper().goToAccountData();
     }
 
+    @AfterMethod
+    public void logout(){
+        app.getNavigationHelper().logout();
+    }
+
 }
