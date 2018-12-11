@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.ArrayList;
+
 public class HomePage extends Page {
 
     public HomePage(PageManager pages){super(pages);}
@@ -12,12 +14,25 @@ public class HomePage extends Page {
     @FindBy(xpath = "//span[@title='Settings']")
     WebElement settings;
 
+    @FindBy(xpath = "//span[@title='Catalog']")
+    WebElement catalog;
+
     @FindBy(xpath = "//span[@title='Logout']")
     WebElement Logout;
 
     public void settingsButtonClick(){
         wait.until(ExpectedConditions.elementToBeClickable(settings));
         settings.click();
+    }
+
+    public void catalogButtonClick(){
+        wait.until(ExpectedConditions.elementToBeClickable(catalog));
+        String oldTab = driver.getWindowHandle();
+        catalog.click();
+        ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+        tabs.remove(oldTab);
+        driver.close();
+        driver.switchTo().window(tabs.get(0));
     }
 
     public void logoutButtonClick(){

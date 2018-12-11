@@ -14,6 +14,26 @@ public class NavigationHelper extends PageManager {
                 .settingsButtonClick();
     }
 
+    public void goToCourse(){
+        homePage
+                .catalogButtonClick();
+    }
+
+    public void searchCourseAs(){
+        coursePage
+                .searchCourse();
+    }
+
+    public void openCourseAs(){
+        coursePage
+                .openCourse();
+    }
+
+    public void goToLogout(){
+        coursePage
+                .myClassroomButtonClick();
+    }
+
     public void logout(){
         homePage
                 .logoutButtonClick();

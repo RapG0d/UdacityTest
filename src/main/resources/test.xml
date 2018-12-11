@@ -4,7 +4,12 @@
         <classes>
             <class name="TestUdacity">
                 <methods>
-                <include name="checkInfo"/>
+                    <exclude name="checkInfo"/>
+                </methods>
+            </class>
+            <class name="CourseTest">
+                <methods>
+                    <include name="checkCourseName"/>
                 </methods>
             </class>
         </classes>

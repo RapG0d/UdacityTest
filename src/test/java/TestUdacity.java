@@ -8,6 +8,8 @@ public class TestUdacity extends TestBase {
     @Test
     public void checkInfo(){
 
+        app.getNavigationHelper().goToAccountData();
+
         String name = app.getAttributeHelper().nameAs();
         Assert.assertEquals(name,"Mike");
 

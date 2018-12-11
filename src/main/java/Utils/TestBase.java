@@ -25,7 +25,6 @@ public class TestBase {
 
         app.getNavigationHelper().goToLoginForm();
         app.getUserHelper().loginAs(app.getUser());
-        app.getNavigationHelper().goToAccountData();
     }
 
     @AfterMethod

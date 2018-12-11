@@ -18,6 +18,8 @@ public class AccountPage extends Page {
     @FindBy(xpath = "//input[3]")
     WebElement emailField;
 
+
+
     public String getName(){
         wait.until(ExpectedConditions.visibilityOf(nameField));
         return nameField.getAttribute("value");

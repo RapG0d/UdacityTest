@@ -16,4 +16,14 @@ public class AttributeHelper extends PageManager {
     public String emailAs(){
        return accountPage.getEmail();
     }
+
+    public String getResult(){return coursePage.checkResult();}
+
+    public String getNameCourseAs(){return coursePage.getNameCourse();}
+
+    public String getNameIntoCourse(){return coursePage.getNameIntoCourse();}
+
+    public void waitAllCourse(){
+        coursePage
+                .getForAllElem();}
 }
