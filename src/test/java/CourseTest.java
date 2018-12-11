@@ -10,11 +10,13 @@ public class CourseTest extends TestBase {
         app.getAttributeHelper().waitAllCourse();
         app.getNavigationHelper().searchCourseAs();
 
-        String resultSearch = app.getAttributeHelper().getResult();
-        Assert.assertEquals(resultSearch,"Android");
+        Assert.assertEquals(app.getAttributeHelper().getResult(),"Android");
 
         String nameCourse = app.getAttributeHelper().getNameCourseAs();
         Assert.assertTrue(nameCourse.contains("Android"));
+
+        app.getNavigationHelper().openDetails();
+        Assert.assertEquals(app.getAttributeHelper().checkButton(),"LEARN MORE");
 
         app.getNavigationHelper().openCourseAs();
         Assert.assertTrue(app.getAttributeHelper().getNameIntoCourse().contains(nameCourse));

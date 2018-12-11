@@ -23,6 +23,8 @@ public class AttributeHelper extends PageManager {
 
     public String getNameIntoCourse(){return coursePage.getNameIntoCourse();}
 
+    public String checkButton(){return coursePage.learnMoreButton();}
+
     public void waitAllCourse(){
         coursePage
                 .getForAllElem();}

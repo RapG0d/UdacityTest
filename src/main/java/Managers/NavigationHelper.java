@@ -29,6 +29,10 @@ public class NavigationHelper extends PageManager {
                 .openCourse();
     }
 
+    public void openDetails(){
+        coursePage.detailsClick();
+    }
+
     public void goToLogout(){
         coursePage
                 .myClassroomButtonClick();

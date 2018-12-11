@@ -29,6 +29,12 @@ public class CoursePage extends  Page {
     @FindBy(xpath = "//h1")
     WebElement mainName;
 
+    @FindBy(xpath = "(//div/span[@class='ng-star-inserted'])[1]")
+    WebElement details;
+
+    @FindBy(xpath = "(//a[@class='button--primary btn'])[1]")
+    WebElement learn_moreButton;
+
     public void getForAllElem(){
 
         try {
@@ -70,6 +76,17 @@ public class CoursePage extends  Page {
     public void openCourse(){
         wait.until(ExpectedConditions.elementToBeClickable(firstCourse));
         firstCourse.click();
+    }
+
+    public void detailsClick(){
+        wait.until(ExpectedConditions.elementToBeClickable(details));
+        details.click();
+    }
+
+    public String learnMoreButton(){
+        wait.until(ExpectedConditions.elementToBeClickable(learn_moreButton));
+        return learn_moreButton.getText();
+
     }
 
 }
