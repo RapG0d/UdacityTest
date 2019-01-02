@@ -10,7 +10,7 @@ public class MainPage extends Page {
     public MainPage(PageManager pages){super(pages);}
 
     @FindBy(xpath = "(//a[@title='Sign In'])[2]")
-    WebElement signIN;
+    private WebElement signIN;
 
     public void signInButtonClick(){
         wait.until(ExpectedConditions.elementToBeClickable(signIN));

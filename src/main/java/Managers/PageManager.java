@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class PageManager {
 
-    WebDriver driver;
+    private WebDriver driver;
     MainPage mainPage;
     LoginPage loginPage;
     HomePage homePage;

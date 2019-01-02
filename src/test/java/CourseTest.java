@@ -1,12 +1,14 @@
 import Utils.TestBase;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 public class CourseTest extends TestBase {
 
-    @Test
+    @Test(description = "Find course and check his info")
     public void checkCourseName(){
         app.getNavigationHelper().goToCourse();
+            app.getNavigationHelper().closeSupernatant();
         app.getAttributeHelper().waitAllCourse();
         app.getNavigationHelper().searchCourseAs();
 
@@ -20,7 +22,11 @@ public class CourseTest extends TestBase {
 
         app.getNavigationHelper().openCourseAs();
         Assert.assertTrue(app.getAttributeHelper().getNameIntoCourse().contains(nameCourse));
+    }
 
+    @AfterMethod
+    public void logout(){
         app.getNavigationHelper().goToLogout();
     }
+
 }

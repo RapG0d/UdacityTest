@@ -10,13 +10,13 @@ public class AccountPage extends Page {
     public AccountPage(PageManager pages){super(pages);}
 
     @FindBy(xpath = "//input[1]")
-    WebElement nameField;
+    private WebElement nameField;
 
     @FindBy(xpath = "//input[2]")
-    WebElement lastNameField;
+    private WebElement lastNameField;
 
     @FindBy(xpath = "//input[3]")
-    WebElement emailField;
+    private WebElement emailField;
 
 
 

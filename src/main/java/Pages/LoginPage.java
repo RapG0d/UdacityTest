@@ -10,13 +10,13 @@ public class LoginPage extends Page {
     public LoginPage(PageManager pages){super(pages);}
 
     @FindBy(xpath = "//input[@type='email']")
-    WebElement loginField;
+    private WebElement loginField;
 
     @FindBy(xpath = "//input[@type='password']")
-    WebElement passwordField;
+    private WebElement passwordField;
 
     @FindBy(xpath = "//button[contains(@class, 'index--primary')]")
-    WebElement loginButton;
+    private WebElement loginButton;
 
     public LoginPage inputEmail(String login){
         wait.until(ExpectedConditions.elementToBeClickable(loginField));

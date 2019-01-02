@@ -5,28 +5,23 @@ public class NavigationHelper extends PageManager {
     public NavigationHelper(AppManager manager){super(manager.getDriver());}
 
     public void goToLoginForm(){
-        mainPage
-                .signInButtonClick();
+        mainPage.signInButtonClick();
     }
 
     public void goToAccountData(){
-        homePage
-                .settingsButtonClick();
+        homePage.settingsButtonClick();
     }
 
     public void goToCourse(){
-        homePage
-                .catalogButtonClick();
+        homePage.catalogButtonClick();
     }
 
     public void searchCourseAs(){
-        coursePage
-                .searchCourse();
+        coursePage.searchCourse();
     }
 
     public void openCourseAs(){
-        coursePage
-                .openCourse();
+        coursePage.openCourse();
     }
 
     public void openDetails(){
@@ -34,12 +29,14 @@ public class NavigationHelper extends PageManager {
     }
 
     public void goToLogout(){
-        coursePage
-                .myClassroomButtonClick();
+        coursePage.myClassroomButtonClick();
+    }
+
+    public void closeSupernatant(){
+        coursePage.closeSupernatantWindow();
     }
 
     public void logout(){
-        homePage
-                .logoutButtonClick();
+        homePage.logoutButtonClick();
     }
 }

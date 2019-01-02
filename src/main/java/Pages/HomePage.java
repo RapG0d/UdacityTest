@@ -12,13 +12,13 @@ public class HomePage extends Page {
     public HomePage(PageManager pages){super(pages);}
 
     @FindBy(xpath = "//span[@title='Settings']")
-    WebElement settings;
+    private WebElement settings;
 
     @FindBy(xpath = "//span[@title='Catalog']")
-    WebElement catalog;
+    private WebElement catalog;
 
     @FindBy(xpath = "//span[@title='Logout']")
-    WebElement Logout;
+    private WebElement logout;
 
     public void settingsButtonClick(){
         wait.until(ExpectedConditions.elementToBeClickable(settings));
@@ -36,7 +36,7 @@ public class HomePage extends Page {
     }
 
     public void logoutButtonClick(){
-        wait.until(ExpectedConditions.elementToBeClickable(Logout));
-        Logout.click();
+        wait.until(ExpectedConditions.elementToBeClickable(logout));
+        logout.click();
     }
 }

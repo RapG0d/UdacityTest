@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class TestUdacity extends TestBase {
 
-    @Test
+    @Test(description = "Check user data")
     public void checkInfo(){
 
         app.getNavigationHelper().goToAccountData();

@@ -6,7 +6,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.sql.SQLOutput;
 import java.util.List;
 
 public class CoursePage extends  Page {
@@ -15,30 +14,33 @@ public class CoursePage extends  Page {
 
 
     @FindBy(xpath = "//input[@placeholder='Search']")
-    WebElement searchField;
+    private WebElement searchField;
 
     @FindBy(xpath = "//span[@class='filters ng-star-inserted']")
-    WebElement result;
+    private WebElement getResult;
 
     @FindBy(xpath = "(//a[@title='My Classroom'])[2]")
-    WebElement myClassroomButton;
+    private WebElement myClassroomButton;
 
     @FindBy(xpath = "(//h3[@class='card-heading']/a)[1]")
-    WebElement firstCourse;
+    private WebElement getFirstCourse;
 
     @FindBy(xpath = "//h1")
-    WebElement mainName;
+    private WebElement getMainName;
 
     @FindBy(xpath = "(//div/span[@class='ng-star-inserted'])[1]")
-    WebElement details;
+    private WebElement details;
 
     @FindBy(xpath = "(//a[@class='button--primary btn'])[1]")
-    WebElement learn_moreButton;
+    private WebElement getLearnMoreButton;
+
+    @FindBy(xpath = "//*[@class='modal-close white-shadow']")
+    private WebElement closeAdvertising;
 
     public void getForAllElem(){
 
         try {
-            wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath("//div[@class='card-content']"), 230));
+            wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//div[@class='card-content']"),10));
             List<WebElement> listOfNames = driver.findElements(By.xpath("//div[@class='card-content']//a"));
             wait.until(ExpectedConditions.elementToBeClickable(listOfNames.get(0)));
             System.out.println(listOfNames.get(0).getText());
@@ -54,18 +56,18 @@ public class CoursePage extends  Page {
     }
 
     public String checkResult(){
-        wait.until(ExpectedConditions.visibilityOf(result));
-        return result.getText();
+        wait.until(ExpectedConditions.visibilityOf(getResult));
+        return getResult.getText();
     }
 
     public String getNameCourse(){
-        wait.until(ExpectedConditions.visibilityOf(firstCourse));
-        return firstCourse.getText();
+        wait.until(ExpectedConditions.visibilityOf(getFirstCourse));
+        return getFirstCourse.getText();
     }
 
     public String getNameIntoCourse(){
-        wait.until(ExpectedConditions.visibilityOf(mainName));
-        return mainName.getText();
+        wait.until(ExpectedConditions.visibilityOf(getMainName));
+        return getMainName.getText();
     }
 
     public void myClassroomButtonClick(){
@@ -74,8 +76,8 @@ public class CoursePage extends  Page {
     }
 
     public void openCourse(){
-        wait.until(ExpectedConditions.elementToBeClickable(firstCourse));
-        firstCourse.click();
+        wait.until(ExpectedConditions.elementToBeClickable(getFirstCourse));
+        getFirstCourse.click();
     }
 
     public void detailsClick(){
@@ -84,9 +86,14 @@ public class CoursePage extends  Page {
     }
 
     public String learnMoreButton(){
-        wait.until(ExpectedConditions.elementToBeClickable(learn_moreButton));
-        return learn_moreButton.getText();
+        wait.until(ExpectedConditions.elementToBeClickable(getLearnMoreButton));
+        return getLearnMoreButton.getText();
 
+    }
+
+    public void closeSupernatantWindow(){
+        wait.until(ExpectedConditions.elementToBeClickable(closeAdvertising));
+        closeAdvertising.click();
     }
 
 }

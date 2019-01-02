@@ -12,18 +12,14 @@ public class AppManager {
     private AttributeHelper attributeHelper;
     private WebDriver driver;
     private User user;
-    private String login;
-    private String password;
 
-
-    private String baseUrl;
 
     public AppManager(){
-        login = PropertyLoader.loadProperty("email");
-        password = PropertyLoader.loadProperty("password");
-        baseUrl = PropertyLoader.loadProperty("base.url");
+        String login = PropertyLoader.loadProperty("email");
+        String password = PropertyLoader.loadProperty("password");
+        String baseUrl = PropertyLoader.loadProperty("base.url");
 
-        user = new User(login,password);
+        user = new User(login, password);
         driver = new Driver().setupDriver();
         driver.manage().window().maximize();
         driver.get(baseUrl);
