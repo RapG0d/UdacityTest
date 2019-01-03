@@ -8,7 +8,7 @@ public class CourseTest extends TestBase {
     @Test(description = "Find course and check his info")
     public void checkCourseName(){
         app.getNavigationHelper().goToCourse();
-            app.getNavigationHelper().closeSupernatant();
+        app.getNavigationHelper().closeSupernatant();
         app.getAttributeHelper().waitAllCourse();
         app.getNavigationHelper().searchCourseAs();
 
@@ -28,5 +28,6 @@ public class CourseTest extends TestBase {
     public void logout(){
         app.getNavigationHelper().goToLogout();
     }
+
 
 }

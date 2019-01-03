@@ -37,6 +37,9 @@ public class CoursePage extends  Page {
     @FindBy(xpath = "//*[@class='modal-close white-shadow']")
     private WebElement closeAdvertising;
 
+    @FindBy(xpath = "(//h3[@class='card-heading']/a)[2]")
+    private WebElement secondCourse;
+
     public void getForAllElem(){
 
         try {
@@ -77,7 +80,14 @@ public class CoursePage extends  Page {
 
     public void openCourse(){
         wait.until(ExpectedConditions.elementToBeClickable(getFirstCourse));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@class='modal-close white-shadow']")));
         getFirstCourse.click();
+    }
+
+    public void openOtherCourse(){
+        wait.until(ExpectedConditions.elementToBeClickable(secondCourse));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@class='modal-close white-shadow']")));
+        secondCourse.click();
     }
 
     public void detailsClick(){
@@ -94,6 +104,10 @@ public class CoursePage extends  Page {
     public void closeSupernatantWindow(){
         wait.until(ExpectedConditions.elementToBeClickable(closeAdvertising));
         closeAdvertising.click();
+    }
+
+    public String getCurrentUrl(){
+        return driver.getCurrentUrl();
     }
 
 }

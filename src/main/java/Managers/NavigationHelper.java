@@ -24,6 +24,10 @@ public class NavigationHelper extends PageManager {
         coursePage.openCourse();
     }
 
+    public void openOtherCourse(){
+        coursePage.openOtherCourse();
+    }
+
     public void openDetails(){
         coursePage.detailsClick();
     }
@@ -34,6 +38,10 @@ public class NavigationHelper extends PageManager {
 
     public void closeSupernatant(){
         coursePage.closeSupernatantWindow();
+    }
+
+    public String getCurrentUrl(){
+       return coursePage.getCurrentUrl();
     }
 
     public void logout(){
