@@ -9,7 +9,7 @@
             </class>
             <class name="CourseTest">
                 <methods>
-                    <exclude name="checkCourseName"/>
+                    <include name="checkCourseName"/>
                 </methods>
             </class>
             <class name="NavigationTest">

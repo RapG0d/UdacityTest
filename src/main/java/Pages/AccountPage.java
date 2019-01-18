@@ -1,6 +1,7 @@
 package Pages;
 
 import Managers.PageManager;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,17 +20,17 @@ public class AccountPage extends Page {
     private WebElement emailField;
 
 
-
+    @Step("Get user name")
     public String getName(){
         wait.until(ExpectedConditions.visibilityOf(nameField));
         return nameField.getAttribute("value");
     }
-
+    @Step("Get user Last name")
     public String getLastName(){
         wait.until(ExpectedConditions.visibilityOf(lastNameField));
         return lastNameField.getAttribute("value");
     }
-
+    @Step("Get user email")
     public String getEmail(){
         wait.until(ExpectedConditions.visibilityOf(emailField));
         return emailField.getAttribute("value");

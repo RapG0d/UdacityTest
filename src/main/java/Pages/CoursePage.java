@@ -2,6 +2,8 @@ package Pages;
 
 
 import Managers.PageManager;
+import io.qameta.allure.Attachment;
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -34,12 +36,13 @@ public class CoursePage extends  Page {
     @FindBy(xpath = "(//a[@class='button--primary btn'])[1]")
     private WebElement getLearnMoreButton;
 
-    @FindBy(xpath = "//*[@class='modal-close white-shadow']")
+    @FindBy(xpath = "//div[@class='modal-close white-shadow']")
     private WebElement closeAdvertising;
 
     @FindBy(xpath = "(//h3[@class='card-heading']/a)[2]")
     private WebElement secondCourse;
 
+    @Step("Waiting courses list")
     public void getForAllElem(){
 
         try {
@@ -52,60 +55,60 @@ public class CoursePage extends  Page {
         }
     }
 
-
+    @Step("Search Android course")
     public void searchCourse() {
        wait.until(ExpectedConditions.elementToBeClickable(searchField));
        searchField.sendKeys("Android");
     }
-
+    @Step("Check result of search")
     public String checkResult(){
         wait.until(ExpectedConditions.visibilityOf(getResult));
         return getResult.getText();
     }
-
+    @Step("Get name some course")
     public String getNameCourse(){
         wait.until(ExpectedConditions.visibilityOf(getFirstCourse));
         return getFirstCourse.getText();
     }
-
+    @Step("Get name on course page")
     public String getNameIntoCourse(){
         wait.until(ExpectedConditions.visibilityOf(getMainName));
         return getMainName.getText();
     }
-
+    @Step("Click on myClassroom button")
     public void myClassroomButtonClick(){
         wait.until(ExpectedConditions.elementToBeClickable(myClassroomButton));
         myClassroomButton.click();
     }
-
+    @Step("Open course that we find")
     public void openCourse(){
         wait.until(ExpectedConditions.elementToBeClickable(getFirstCourse));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@class='modal-close white-shadow']")));
         getFirstCourse.click();
     }
-
+    @Step("Open course some course")
     public void openOtherCourse(){
         wait.until(ExpectedConditions.elementToBeClickable(secondCourse));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@class='modal-close white-shadow']")));
         secondCourse.click();
     }
-
+    @Step("Open course details click on button")
     public void detailsClick(){
         wait.until(ExpectedConditions.elementToBeClickable(details));
         details.click();
     }
-
+    @Step("Get name of learn more button")
     public String learnMoreButton(){
         wait.until(ExpectedConditions.elementToBeClickable(getLearnMoreButton));
         return getLearnMoreButton.getText();
 
     }
-
+    @Step("Close pop-up advertising")
     public void closeSupernatantWindow(){
         wait.until(ExpectedConditions.elementToBeClickable(closeAdvertising));
         closeAdvertising.click();
     }
-
+    @Step("Get current Url some page")
     public String getCurrentUrl(){
         return driver.getCurrentUrl();
     }

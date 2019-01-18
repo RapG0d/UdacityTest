@@ -1,11 +1,16 @@
 import Utils.TestBase;
+import Listeners.ScreenShotOnFailListener;
+import io.qameta.allure.Description;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners(ScreenShotOnFailListener.class)
 
 public class TestUdacity extends TestBase {
 
     @Test(description = "Check user data")
+    @Description("Check info about User")
     public void checkInfo(){
 
         app.getNavigationHelper().goToAccountData();

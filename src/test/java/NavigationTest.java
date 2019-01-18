@@ -1,14 +1,19 @@
 import Utils.TestBase;
+import Listeners.ScreenShotOnFailListener;
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
+@Listeners(ScreenShotOnFailListener.class)
 
 public class NavigationTest extends TestBase {
 
     @Test(description = "Check url of Android")
+    @Description("Check Url Android course")
     public void checkCourseUrl(){
         app.getNavigationHelper().goToCourse();
-        app.getNavigationHelper().closeSupernatant();
         app.getAttributeHelper().waitAllCourse();
         app.getNavigationHelper().searchCourseAs();
 
@@ -20,6 +25,7 @@ public class NavigationTest extends TestBase {
     }
 
     @Test(description = "Check url of VR Foundation")
+    @Description("Check Url VR Foundation course")
     public void checkUrlVRFoundation(){
         app.getNavigationHelper().goToCourse();
         app.getAttributeHelper().waitAllCourse();
@@ -28,7 +34,8 @@ public class NavigationTest extends TestBase {
         Assert.assertEquals(app.getNavigationHelper().getCurrentUrl(),"https://www.udacity.com/course/vr-foundations-nanodegree--nd105");
     }
 
-    @Test(description = "Check url of VR Foundation")
+    @Test(description = "Check url of VR mobile 360")
+    @Description("Check Url VR mobile 360 course")
     public void checkUrlVRMobile(){
         app.getNavigationHelper().goToCourse();
         app.getAttributeHelper().waitAllCourse();

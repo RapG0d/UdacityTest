@@ -23,8 +23,16 @@ public class TestBase {
     @BeforeMethod
     public void login(){
 
-        app.getNavigationHelper().goToLoginForm();
-        app.getUserHelper().loginAs(app.getUser());
+        try {
+            app.getNavigationHelper().closeSupernatant();
+            Thread.sleep(500);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            app.getNavigationHelper().goToLoginForm();
+            app.getUserHelper().loginAs(app.getUser());
+        }
+
     }
 
     @AfterMethod

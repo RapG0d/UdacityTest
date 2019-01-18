@@ -12,6 +12,7 @@
 
     <properties>
         <aspectj.version>1.8.10</aspectj.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
@@ -36,6 +37,28 @@
             <artifactId>xalan</artifactId>
             <version>2.7.0</version>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+            <dependency>
+                <groupId> org.apache.cassandra</groupId>
+                <artifactId>cassandra-all</artifactId>
+                <version>0.8.1</version>
+
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                </exclusions>
+
+            </dependency>
     </dependencies>
 
     <build>
@@ -73,7 +96,17 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <reportVersion>2.9.0</reportVersion>
+                    <allureDownloadUrl>https://dl.bintray.com/qameta/maven/io/qameta/allure/allure-commandline/2.9.0/allure-commandline-2.9.0.zip</allureDownloadUrl>
+                </configuration>
+            </plugin>
         </plugins>
+
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -83,20 +116,6 @@
     </build>
 
     <profiles>
-        <profile>
-            <id>profile-1</id>
-            <activation>
-                <jdk>9.0</jdk>
-            </activation>
-        </profile>
-        <profile>
-            <id>profile-2</id>
-            <activation>
-                <property>
-                    <name>!debug</name>
-                </property>
-            </activation>
-        </profile>
             <profile>
                 <id>chrome</id>
                 <properties>
