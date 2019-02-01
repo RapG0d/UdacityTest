@@ -22,16 +22,8 @@ public class TestBase {
 
     @BeforeMethod
     public void login(){
-
-        try {
-            app.getNavigationHelper().closeSupernatant();
-            Thread.sleep(500);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }finally {
             app.getNavigationHelper().goToLoginForm();
             app.getUserHelper().loginAs(app.getUser());
-        }
 
     }
 

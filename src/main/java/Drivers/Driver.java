@@ -17,6 +17,11 @@ public class Driver {
                 .usingAnyFreePort()
                 .build();
         ChromeOptions optionsChrome = new ChromeOptions();
+        optionsChrome.addArguments("--headless");
+        optionsChrome.addArguments("--disable-gpu");
+        optionsChrome.addArguments("--no-sandbox");
+        optionsChrome.addArguments("--window-size=2048,1152");
+        optionsChrome.addArguments("--allow-insecure-localhost");
         return new ChromeDriver(serviceChrome,optionsChrome);
     }
 }

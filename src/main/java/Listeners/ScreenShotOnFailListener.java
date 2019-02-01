@@ -15,8 +15,8 @@ public class ScreenShotOnFailListener implements ITestListener {
     }
 
     @Attachment(value = "Page screenshot", type = "image/png")
-    private void saveScreenshotPNG(WebDriver driver) {
-        ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+    private byte[] saveScreenshotPNG(WebDriver driver) {
+       return  ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 
     @Attachment(value = "{0}", type = "text/plain")

@@ -5,11 +5,10 @@ import java.util.Properties;
 
 public class PropertyLoader {
 
-    private static String PROP_FILE = "/app.properties";
-
     public static String loadProperty(String name){
         Properties props = new Properties();
         try{
+            String PROP_FILE = "/app.properties";
             props.load(PropertyLoader.class.getResourceAsStream(PROP_FILE));
         }catch(IOException e){
             e.printStackTrace();

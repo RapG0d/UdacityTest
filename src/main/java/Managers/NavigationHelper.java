@@ -2,7 +2,7 @@ package Managers;
 
 public class NavigationHelper extends PageManager {
 
-    public NavigationHelper(AppManager manager){super(manager.getDriver());}
+    NavigationHelper(AppManager manager){super(manager.getDriver());}
 
     public void goToLoginForm(){
         mainPage.signInButtonClick();
@@ -36,8 +36,8 @@ public class NavigationHelper extends PageManager {
         coursePage.myClassroomButtonClick();
     }
 
-    public void closeSupernatant(){
-        coursePage.closeSupernatantWindow();
+    public void closeAds(){
+        coursePage.closeAdvertisement();
     }
 
     public String getCurrentUrl(){

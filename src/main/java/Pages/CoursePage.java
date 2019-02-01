@@ -2,7 +2,6 @@ package Pages;
 
 
 import Managers.PageManager;
-import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -78,7 +77,7 @@ public class CoursePage extends  Page {
     @Step("Click on myClassroom button")
     public void myClassroomButtonClick(){
         wait.until(ExpectedConditions.elementToBeClickable(myClassroomButton));
-        myClassroomButton.click();
+        actions.click(myClassroomButton).build().perform();
     }
     @Step("Open course that we find")
     public void openCourse(){
@@ -97,16 +96,17 @@ public class CoursePage extends  Page {
         wait.until(ExpectedConditions.elementToBeClickable(details));
         details.click();
     }
+
+    @Step("Close advertisement")
+    public void closeAdvertisement(){
+        wait.until(ExpectedConditions.elementToBeClickable(closeAdvertising));
+        closeAdvertising.click();
+    }
     @Step("Get name of learn more button")
     public String learnMoreButton(){
         wait.until(ExpectedConditions.elementToBeClickable(getLearnMoreButton));
         return getLearnMoreButton.getText();
 
-    }
-    @Step("Close pop-up advertising")
-    public void closeSupernatantWindow(){
-        wait.until(ExpectedConditions.elementToBeClickable(closeAdvertising));
-        closeAdvertising.click();
     }
     @Step("Get current Url some page")
     public String getCurrentUrl(){
