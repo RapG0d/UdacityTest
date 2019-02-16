@@ -15,7 +15,6 @@ public class CourseTest extends TestBase {
     public void checkCourseName(){
         app.getNavigationHelper().goToCourse();
         app.getAttributeHelper().waitAllCourse();
-        app.getNavigationHelper().closeAds();
         app.getNavigationHelper().searchCourseAs();
 
         Assert.assertEquals(app.getAttributeHelper().getResult(),"Android");

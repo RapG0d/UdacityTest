@@ -15,6 +15,6 @@ public class MainPage extends Page {
     @Step("Open login page")
     public void signInButtonClick(){
         wait.until(ExpectedConditions.elementToBeClickable(signIN));
-       signIN.click();
+        actions.click(signIN).build().perform();
     }
 }

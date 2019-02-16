@@ -16,7 +16,7 @@ public class LoginPage extends Page {
     @FindBy(xpath = "//input[@type='password']")
     private WebElement passwordField;
 
-    @FindBy(xpath = "//button[contains(@class, 'index--primary')]")
+    @FindBy(xpath = "//button[contains(@class, 'button_primary')]")
     private WebElement loginButton;
     @Step("Write user {login}")
     public LoginPage inputEmail(String login){

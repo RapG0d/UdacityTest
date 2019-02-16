@@ -2,6 +2,7 @@ package Pages;
 
 import Managers.PageManager;
 import io.qameta.allure.Step;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,7 +16,7 @@ public class HomePage extends Page {
     @FindBy(xpath = "//a[@title='Settings']")
     private WebElement settings;
 
-    @FindBy(xpath = "//a[@title='Catalog']")
+    @FindBy(xpath = "(//span[@class='_nav-module--nav-item-icon-container--2gNdP'])[2]")
     private WebElement catalog;
 
     @FindBy(xpath = "//a[@title='Logout']")
@@ -29,7 +30,12 @@ public class HomePage extends Page {
     public void catalogButtonClick(){
         wait.until(ExpectedConditions.elementToBeClickable(catalog));
         String oldTab = driver.getWindowHandle();
-        catalog.click();
+        try {
+            actions.click(catalog).build().perform();
+        }catch (StaleElementReferenceException e){
+            actions.click(catalog).build().perform();
+        }
+
         ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
         tabs.remove(oldTab);
         driver.close();
@@ -38,6 +44,11 @@ public class HomePage extends Page {
     @Step("Go to logout")
     public void logoutButtonClick(){
         wait.until(ExpectedConditions.elementToBeClickable(logout));
-        logout.click();
+        try {
+            logout.click();
+        }catch (StaleElementReferenceException e){
+            logoutButtonClick();
+        }
+
     }
 }
