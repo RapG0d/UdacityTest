@@ -9,4 +9,5 @@ import java.util.List;
 public interface GitHubAp {
     @GET("/users/{user}")
     Call<List<GithubRepoModel>> getUserName(@Path("user") String user);
+
 }
