@@ -5,8 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class GithubRepoModel {
 
-    @SerializedName("login")
-    @Expose
+    @SerializedName("name")
     private String name;
 
     public String getName(){

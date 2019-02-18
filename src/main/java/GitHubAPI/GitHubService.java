@@ -1,8 +1,11 @@
 package GitHubAPI;
 
+import org.testng.annotations.Test;
+
 public class GitHubService {
 
-    public static void main(String[] args){
+    @Test
+    public void main(){
         GitHubClient gitHubClient = new GitHubClient();
         gitHubClient.start();
     }
