@@ -3,19 +3,16 @@ package GitHubAPI;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class GitHubClient{
-
-
-//    private static final String BASE_URL = "https://api.github.com/";
 
     private Retrofit buildRetrofit(OkHttpClient okHttpClient) {
 
@@ -33,20 +30,18 @@ public class GitHubClient{
     private OkHttpClient buildOkHttpClient() {
 
         return new OkHttpClient.Builder()
-//                .authenticator(getBasicAuthenticator())
                 .connectTimeout(5, TimeUnit.MINUTES)
                 .readTimeout(5, TimeUnit.MINUTES)
                 .writeTimeout(5, TimeUnit.MINUTES)
-                .addInterceptor(chain -> {
-                    Request.Builder builder = chain.request().newBuilder();
-                    return chain.proceed(builder.build());
-                })
+                .addInterceptor(new BasicAuthInterceptor("RapG0d", "rgt654654"))
                 .build();
     }
 
     public void start() {
 
         GitHubAp gitHubAp = buildRetrofit(buildOkHttpClient()).create(GitHubAp.class);
+
+
 
 
         Response<List<GithubRepoModel>> call = null;
@@ -59,6 +54,19 @@ public class GitHubClient{
                 call.body().forEach(githubRepoModel -> System.out.println(githubRepoModel.getName()));
             }
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Response<GitAuthRepo> calll = null;
+        try{
+            calll = gitHubAp
+                    .getUserDetails()
+                    .execute();
+            if (calll.isSuccessful()){
+                System.out.println(call.body());
+            }
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
