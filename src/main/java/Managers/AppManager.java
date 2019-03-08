@@ -14,14 +14,14 @@ public class AppManager {
     private User user;
 
 
-    public AppManager(){
+    AppManager(){
         String login = PropertyLoader.loadProperty("email");
         String password = PropertyLoader.loadProperty("password");
         String baseUrl = PropertyLoader.loadProperty("base.url");
 
         user = new User(login, password);
         driver = new Driver().setupDriver();
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
         driver.get(baseUrl);
 
         navigationHelper = new NavigationHelper(this);

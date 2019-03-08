@@ -1,0 +1,31 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building lectoriuml1 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ lectoriuml1 ---
+[INFO] Deleting C:\Users\ris99\IdeaProjects\UdacityTest\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ lectoriuml1 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ lectoriuml1 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 23 source files to C:\Users\ris99\IdeaProjects\UdacityTest\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ lectoriuml1 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\ris99\IdeaProjects\UdacityTest\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ lectoriuml1 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to C:\Users\ris99\IdeaProjects\UdacityTest\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M3:test (default-test) @ lectoriuml1 ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running TestSuite

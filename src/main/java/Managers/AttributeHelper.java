@@ -2,7 +2,7 @@ package Managers;
 
 public class AttributeHelper extends PageManager {
 
-    public AttributeHelper (AppManager manager){super(manager.getDriver());}
+    AttributeHelper(AppManager manager){super(manager.getDriver());}
 
 
     public String nameAs(){
@@ -26,6 +26,14 @@ public class AttributeHelper extends PageManager {
     public String checkButton(){return coursePage.learnMoreButton();}
 
     public void waitAllCourse(){
-        coursePage
-                .getForAllElem();}
+        coursePage.getForAllElem();
+    }
+
+    public void editUserName(){
+        accountPage.addNumbers();
+    }
+
+    public String getSchoolName(){return schoolPage.getSchoolName();}
+
+    public String getNameIntoSchool(){return schoolPage.getNameIntoSchool();}
 }

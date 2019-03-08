@@ -13,6 +13,10 @@
     <properties>
         <aspectj.version>1.8.10</aspectj.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <headless>false</headless>
+        <highSize>false</highSize>
+        <middleSize>false</middleSize>
+        <lowSize>false</lowSize>
     </properties>
 
     <dependencies>
@@ -142,13 +146,28 @@
 
     <profiles>
         <profile>
+            <id>lowSize</id>
+            <properties>
+                <size>--window-size=800,600</size>
+            </properties>
+        </profile>
+        <profile>
+            <id>middleSize</id>
+            <properties>
+                <size>--window-size=1600,900</size>
+            </properties>
+        </profile>
+        <profile>
+            <id>highSize</id>
+            <properties>
+                <size>--window-size=2048,1152</size>
+            </properties>
+        </profile>
+        <profile>
             <id>headless</id>
             <properties>
-                <head.less>--headless</head.less>
+                <headless>true</headless>
             </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
         </profile>
             <profile>
                 <id>chrome</id>

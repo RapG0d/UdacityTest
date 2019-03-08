@@ -41,6 +41,9 @@ public class CoursePage extends  Page {
     @FindBy(xpath = "(//h3[@class='card-heading']/a)[2]")
     private WebElement secondCourse;
 
+    @FindBy(xpath = "(//a[@title='Nanodegree'])[2]")
+    private WebElement nanodegreeButton;
+
     @Step("Waiting courses list")
     public void getForAllElem(){
 
@@ -49,7 +52,7 @@ public class CoursePage extends  Page {
             List<WebElement> listOfNames = driver.findElements(By.xpath("//div[@class='card-content']//a"));
             wait.until(ExpectedConditions.elementToBeClickable(listOfNames.get(0)));
             System.out.println(listOfNames.get(0).getText());
-        }catch (StaleElementReferenceException e){
+        }catch (StaleElementReferenceException | IndexOutOfBoundsException e){
             getForAllElem();
         }
     }
@@ -62,6 +65,7 @@ public class CoursePage extends  Page {
     @Step("Check result of search")
     public String checkResult(){
         wait.until(ExpectedConditions.visibilityOf(getResult));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", searchField);
         return getResult.getText();
     }
     @Step("Get name some course")
@@ -89,11 +93,13 @@ public class CoursePage extends  Page {
     public void openOtherCourse(){
         wait.until(ExpectedConditions.elementToBeClickable(secondCourse));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@class='modal-close white-shadow']")));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", getFirstCourse);
         secondCourse.click();
     }
     @Step("Open course details click on button")
     public void detailsClick(){
         wait.until(ExpectedConditions.elementToBeClickable(details));
+        actions.moveToElement(details).perform();
         details.click();
     }
 
@@ -111,6 +117,11 @@ public class CoursePage extends  Page {
     @Step("Get current Url some page")
     public String getCurrentUrl(){
         return driver.getCurrentUrl();
+    }
+
+    @Step("Click open school page")
+    public void openSchoolPage(){
+        wait.until(ExpectedConditions.elementToBeClickable(nanodegreeButton)).click();
     }
 
 }

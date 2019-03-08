@@ -6,6 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class AccountPage extends Page {
 
     public AccountPage(PageManager pages){super(pages);}
@@ -18,6 +21,9 @@ public class AccountPage extends Page {
 
     @FindBy(xpath = "//input[3]")
     private WebElement emailField;
+
+    @FindBy(xpath = "(//span[@class='vds-button__content'])[3]")
+    private WebElement saveButton;
 
 
     @Step("Get user name")
@@ -34,5 +40,18 @@ public class AccountPage extends Page {
     public String getEmail(){
         wait.until(ExpectedConditions.visibilityOf(emailField));
         return emailField.getAttribute("value");
+    }
+    @Step("Clear name field and edit this field")
+    public String addNumbers(){
+        wait.until(ExpectedConditions.visibilityOf(nameField));
+        nameField.clear();
+        int calendar = Calendar.getInstance().get(Calendar.MILLISECOND);
+        wait.until(ExpectedConditions.visibilityOf(nameField));
+        nameField.sendKeys("Mike"+calendar);
+        return Integer.toString(calendar);
+    }
+    @Step("Click save button")
+    public void clickSaveButton(){
+        wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
     }
 }

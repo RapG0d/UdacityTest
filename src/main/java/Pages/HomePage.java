@@ -2,6 +2,7 @@ package Pages;
 
 import Managers.PageManager;
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,16 +17,20 @@ public class HomePage extends Page {
     @FindBy(xpath = "//a[@title='Settings']")
     private WebElement settings;
 
-    @FindBy(xpath = "(//span[@class='_nav-module--nav-item-icon-container--2gNdP'])[2]")
+    @FindBy(xpath = "(//span/span/i)[2]")
     private WebElement catalog;
 
     @FindBy(xpath = "//a[@title='Logout']")
     private WebElement logout;
+
+    @FindBy(xpath = "(//span/span/i)[1]")
+    private WebElement home;
+
     @Step("Open settings")
     public void settingsButtonClick(){
-        wait.until(ExpectedConditions.elementToBeClickable(settings));
-        settings.click();
+        wait.until(ExpectedConditions.elementToBeClickable(settings)).click();
     }
+
     @Step("Open catalog and close first window")
     public void catalogButtonClick(){
         wait.until(ExpectedConditions.elementToBeClickable(catalog));
@@ -33,7 +38,7 @@ public class HomePage extends Page {
         try {
             actions.click(catalog).build().perform();
         }catch (StaleElementReferenceException e){
-            actions.click(catalog).build().perform();
+            driver.findElement(By.xpath("//span[@class='_nav-module--nav-item-icon-container--2gNdP'])[2]")).click();
         }
 
         ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
@@ -41,14 +46,20 @@ public class HomePage extends Page {
         driver.close();
         driver.switchTo().window(tabs.get(0));
     }
+
     @Step("Go to logout")
     public void logoutButtonClick(){
-        wait.until(ExpectedConditions.elementToBeClickable(logout));
         try {
+            wait.until(ExpectedConditions.elementToBeClickable(logout));
             logout.click();
         }catch (StaleElementReferenceException e){
-            logoutButtonClick();
+            driver.findElement(By.xpath("//a[@title='Logout']")).click();
         }
 
+    }
+
+    @Step("Click home button")
+    public void clickHomeButton(){
+        wait.until(ExpectedConditions.elementToBeClickable(home)).click();
     }
 }

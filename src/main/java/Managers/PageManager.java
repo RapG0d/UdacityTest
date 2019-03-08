@@ -12,6 +12,7 @@ public class PageManager {
     HomePage homePage;
     AccountPage accountPage;
     CoursePage coursePage;
+    SchoolPage schoolPage;
 
     public  PageManager(WebDriver driver){
         this.driver = driver;
@@ -20,6 +21,7 @@ public class PageManager {
         homePage = initElements(new HomePage(this));
         accountPage = initElements(new AccountPage(this));
         coursePage = initElements(new CoursePage(this));
+        schoolPage = initElements(new SchoolPage(this));
     }
 
     private <T extends Page> T initElements(T page){

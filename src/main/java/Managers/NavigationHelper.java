@@ -47,4 +47,13 @@ public class NavigationHelper extends PageManager {
     public void logout(){
         homePage.logoutButtonClick();
     }
+
+    public void saveButton(){accountPage.clickSaveButton();}
+
+    public void homeButton(){homePage.clickHomeButton();}
+
+    public void openSchoolPage(){coursePage.openSchoolPage();}
+
+    public void openLearnMoreSchool(){schoolPage.clickLearnMoreButton();}
+
 }

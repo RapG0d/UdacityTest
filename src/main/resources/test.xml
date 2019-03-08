@@ -4,19 +4,29 @@
         <classes>
             <class name="TestUdacity">
                 <methods>
-                    <include name="checkInfo"/>
+                    <exclude name="checkInfo"/>
                 </methods>
             </class>
             <class name="CourseTest">
                 <methods>
-                    <include name="checkCourseName"/>
+                    <exclude name="checkCourseName"/>
                 </methods>
             </class>
             <class name="NavigationTest">
                 <methods>
-                    <include name="checkCourseUrl"/>
-                    <include name="checkUrlVRFoundation"/>
-                    <include name="checkUrlVRMobile"/>
+                    <exclude name="checkCourseUrl"/>
+                    <exclude name="checkUrlVRFoundation"/>
+                    <exclude name="checkUrlVRMobile"/>
+                </methods>
+            </class>
+            <class name="EditProfileTest">
+                <methods>
+                    <exclude name="editProfile"/>
+                </methods>
+            </class>
+            <class name="SchoolTest">
+                <methods>
+                    <include name="checkSchoolName"/>
                 </methods>
             </class>
         </classes>
