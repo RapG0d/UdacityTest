@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class NavigationTest extends TestBase {
 
-    @Test(description = "Check url of Android")
+    @Test(description = "Check url of Android", groups = "navigation")
     @Description("Check Url Android course")
     public void checkCourseUrl(){
         app.getNavigationHelper().goToCourse();
@@ -24,17 +24,17 @@ public class NavigationTest extends TestBase {
         Assert.assertEquals(app.getNavigationHelper().getCurrentUrl(),"https://www.udacity.com/course/android-developer-nanodegree-by-google--nd801");
     }
 
-    @Test(description = "Check url of VR Foundation")
+    @Test(description = "Check url of VR Foundation",groups = "navigation")
     @Description("Check Url VR Foundation course")
     public void checkUrlVRFoundation(){
         app.getNavigationHelper().goToCourse();
         app.getAttributeHelper().waitAllCourse();
-        app.getNavigationHelper().openCourseAs();
+        app.getNavigationHelper().openVrFoundationCorse();
 
         Assert.assertEquals(app.getNavigationHelper().getCurrentUrl(),"https://www.udacity.com/course/vr-foundations-nanodegree--nd105");
     }
 
-    @Test(description = "Check url of VR mobile 360")
+    @Test(description = "Check url of VR mobile 360",groups = "navigation")
     @Description("Check Url VR mobile 360 course")
     public void checkUrlVRMobile(){
         app.getNavigationHelper().goToCourse();

@@ -1,5 +1,5 @@
 import Utils.TestBase;
-import jdk.jfr.Description;
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Listeners;
@@ -10,7 +10,7 @@ import Listeners.ScreenShotOnFailListener;
 
 public class SchoolTest extends TestBase {
 
-    @Test(description = "Check name first school")
+    @Test(description = "Check name first school",groups = "school")
     @Description("Check name first school")
     public void checkSchoolName(){
 

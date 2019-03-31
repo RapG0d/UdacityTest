@@ -4,29 +4,64 @@
         <classes>
             <class name="TestUdacity">
                 <methods>
-                    <exclude name="checkInfo"/>
+                    <include name="checkInfo"/>
                 </methods>
             </class>
+        </classes>
+    </test>
+    <test name="Course">
+        <classes>
             <class name="CourseTest">
                 <methods>
-                    <exclude name="checkCourseName"/>
+                    <include name="checkCourseName"/>
                 </methods>
             </class>
+        </classes>
+    </test>
+    <test name="Navigation">
+        <classes>
             <class name="NavigationTest">
                 <methods>
-                    <exclude name="checkCourseUrl"/>
-                    <exclude name="checkUrlVRFoundation"/>
-                    <exclude name="checkUrlVRMobile"/>
+                    <include name="checkCourseUrl"/>
+                    <include name="checkUrlVRFoundation"/>
+                    <include name="checkUrlVRMobile"/>
                 </methods>
             </class>
+        </classes>
+    </test>
+    <test name="Edit Profile">
+        <classes>
             <class name="EditProfileTest">
                 <methods>
-                    <exclude name="editProfile"/>
+                    <include name="editProfile"/>
                 </methods>
             </class>
+        </classes>
+    </test>
+    <test name="School">
+        <classes>
             <class name="SchoolTest">
                 <methods>
                     <include name="checkSchoolName"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Testimonial GitHub Review">
+        <classes>
+            <class name="CareerServicesTest">
+                <methods>
+                    <include name="testimonialOfGitHubReview"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Check Career and Explore lists">
+        <classes>
+            <class name="ExploreAndCareerTest">
+                <methods>
+                    <include name="checkExploreAndCareerList"/>
+                    <include name="checkCareerList"/>
                 </methods>
             </class>
         </classes>

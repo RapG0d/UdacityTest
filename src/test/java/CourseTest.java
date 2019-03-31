@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class CourseTest extends TestBase {
 
-    @Test(description = "Find course and check his info")
+    @Test(description = "Find course and check his info",groups = "Courses")
     @Description("Find course and check result search, name course and button 'Learn more'")
     public void checkCourseName(){
         app.getNavigationHelper().goToCourse();

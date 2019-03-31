@@ -38,7 +38,10 @@ public class CoursePage extends  Page {
     @FindBy(xpath = "//div[@class='modal-close white-shadow']")
     private WebElement closeAdvertising;
 
-    @FindBy(xpath = "(//h3[@class='card-heading']/a)[2]")
+    @FindBy(xpath = "(//h3[@class='card-heading']/a)[3]")
+    private WebElement vrFoundaitinCourse;
+
+    @FindBy(xpath = "(//h3[@class='card-heading']/a)[4]")
     private WebElement secondCourse;
 
     @FindBy(xpath = "(//a[@title='Nanodegree'])[2]")
@@ -122,6 +125,14 @@ public class CoursePage extends  Page {
     @Step("Click open school page")
     public void openSchoolPage(){
         wait.until(ExpectedConditions.elementToBeClickable(nanodegreeButton)).click();
+    }
+
+    @Step("Open vr foundation course")
+    public void openVrFoundation(){
+        wait.until(ExpectedConditions.elementToBeClickable(vrFoundaitinCourse));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@class='modal-close white-shadow']")));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", getFirstCourse);
+        vrFoundaitinCourse.click();
     }
 
 }

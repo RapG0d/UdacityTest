@@ -20,14 +20,14 @@ public class TestBase {
     @AfterSuite
     public void  tearDown(){app.getDriver().quit();}
 
-    @BeforeMethod
+    @BeforeMethod(onlyForGroups = {"profile","navigation","school","Courses"})
     public void login(){
             app.getNavigationHelper().goToLoginForm();
             app.getUserHelper().loginAs(app.getUser());
 
     }
 
-    @AfterMethod
+    @AfterMethod(onlyForGroups = {"profile","navigation","school","Courses"})
     public void logout(){
         app.getNavigationHelper().logout();
     }

@@ -9,19 +9,19 @@ import org.testng.annotations.Test;
 
 public class TestUdacity extends TestBase {
 
-    @Test(description = "Check user data")
+    @Test(description = "Check user data", groups = {"profile"})
     @Description("Check info about User")
     public void checkInfo(){
 
         app.getNavigationHelper().goToAccountData();
 
-        String name = app.getAttributeHelper().nameAs();
-        Assert.assertEquals(name,"Mike");
+        String name = app.getUserHelper().nameAs();
+        Assert.assertEquals(name,"Mike674Mike160");
 
-        String lastName = app.getAttributeHelper().lastNameAs();
+        String lastName = app.getUserHelper().lastNameAs();
         Assert.assertEquals(lastName,"Lebowski");
 
-        String email = app.getAttributeHelper().emailAs();
+        String email = app.getUserHelper().emailAs();
         Assert.assertEquals(email,"testmailforus9@gmail.com");
 
     }

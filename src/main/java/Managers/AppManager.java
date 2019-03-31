@@ -21,7 +21,6 @@ public class AppManager {
 
         user = new User(login, password);
         driver = new Driver().setupDriver();
-        //driver.manage().window().maximize();
         driver.get(baseUrl);
 
         navigationHelper = new NavigationHelper(this);

@@ -1,5 +1,5 @@
 import Utils.TestBase;
-import jdk.jfr.Description;
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import Listeners.ScreenShotOnFailListener;
@@ -9,15 +9,16 @@ import org.testng.annotations.Test;
 
 public class EditProfileTest extends TestBase {
 
-    @Test(description = "Check edit name in user profile")
+    @Test(description = "Check edit name in user profile", groups = {"profile"})
     @Description("Check edit name in user profile")
     public void editProfile(){
         app.getNavigationHelper().goToAccountData();
-        String startName = app.getAttributeHelper().nameAs();
-        app.getAttributeHelper().editUserName();
-        app.getNavigationHelper().saveButton();
-        app.getNavigationHelper().homeButton();
+        String startName = app.getUserHelper().nameAs();
+        String newName = app.getUserHelper().editUserName();
+        app.getNavigationHelper().saveChanges();
+        app.getNavigationHelper().goToHomePage();
         app.getNavigationHelper().goToAccountData();
-        Assert.assertNotEquals(startName, app.getAttributeHelper().nameAs());
+        Assert.assertEquals(app.getUserHelper().nameAs(), newName);
+        Assert.assertNotEquals(app.getUserHelper().nameAs(),startName);
     }
 }

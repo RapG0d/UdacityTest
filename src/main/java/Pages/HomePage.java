@@ -14,6 +14,9 @@ public class HomePage extends Page {
 
     public HomePage(PageManager pages){super(pages);}
 
+    @FindBy(xpath = "(//a[@target='_blank'])[1]")
+    private WebElement mainPage;
+
     @FindBy(xpath = "//a[@title='Settings']")
     private WebElement settings;
 
@@ -61,5 +64,15 @@ public class HomePage extends Page {
     @Step("Click home button")
     public void clickHomeButton(){
         wait.until(ExpectedConditions.elementToBeClickable(home)).click();
+    }
+
+    @Step("Click main page button")
+    public void clickMainPageButton(){
+        String oldTab = driver.getWindowHandle();
+        wait.until(ExpectedConditions.elementToBeClickable(mainPage)).click();
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        tabs.remove(oldTab);
+        driver.close();
+        driver.switchTo().window(tabs.get(0));
     }
 }

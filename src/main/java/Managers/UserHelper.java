@@ -13,4 +13,20 @@ public class UserHelper extends PageManager {
                 .loginButtonClick();
     }
 
+    public String nameAs(){
+        return accountPage.getName();
+    }
+
+    public String lastNameAs(){
+        return accountPage.getLastName();
+    }
+
+    public String emailAs(){
+        return accountPage.getEmail();
+    }
+
+    public String editUserName(){
+        return accountPage.addNumbers();
+    }
+
 }

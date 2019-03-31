@@ -1,21 +1,10 @@
 package Managers;
 
+import java.util.List;
+
 public class AttributeHelper extends PageManager {
 
     AttributeHelper(AppManager manager){super(manager.getDriver());}
-
-
-    public String nameAs(){
-        return accountPage.getName();
-    }
-
-    public String lastNameAs(){
-        return accountPage.getLastName();
-    }
-
-    public String emailAs(){
-       return accountPage.getEmail();
-    }
 
     public String getResult(){return coursePage.checkResult();}
 
@@ -29,11 +18,17 @@ public class AttributeHelper extends PageManager {
         coursePage.getForAllElem();
     }
 
-    public void editUserName(){
-        accountPage.addNumbers();
-    }
-
     public String getSchoolName(){return schoolPage.getSchoolName();}
 
     public String getNameIntoSchool(){return schoolPage.getNameIntoSchool();}
+
+    public String getUserName(){return careerPage.getUserName();}
+
+    public List<String> ourList(){return mainPage.expectedList();}
+
+    public List<String> getListExplore(){ return mainPage.listIntoExploreMenu();}
+
+    public List<String> getListCareer(){return  mainPage.listIntoCareer();}
+
+    public List<String> getOurFirstList() {return  mainPage.expecteList();}
 }

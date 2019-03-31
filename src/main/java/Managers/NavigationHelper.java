@@ -48,12 +48,33 @@ public class NavigationHelper extends PageManager {
         homePage.logoutButtonClick();
     }
 
-    public void saveButton(){accountPage.clickSaveButton();}
+    public void saveChanges(){accountPage.clickSaveButton();}
 
-    public void homeButton(){homePage.clickHomeButton();}
+    public void goToHomePage(){homePage.clickHomeButton();}
 
     public void openSchoolPage(){coursePage.openSchoolPage();}
 
     public void openLearnMoreSchool(){schoolPage.clickLearnMoreButton();}
 
+    public void goToMainPage(){
+        homePage.clickMainPageButton();
+    }
+
+    public void openDropDownMenu(){
+        mainPage.careerButtonClick();
+    }
+
+    public void goToCareerServicesPage(){
+        mainPage.careerPrepClick();
+    }
+
+    public void scrollToGitHubReview(){
+        careerPage.gitHubReviewClick();
+    }
+
+    public void openExploreDropDownMenu(){
+        mainPage.exploreMenuClick();
+    }
+
+    public void openVrFoundationCorse(){coursePage.openVrFoundation();}
 }
