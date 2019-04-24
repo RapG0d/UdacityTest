@@ -32,7 +32,6 @@ public class CourseTest extends TestBase {
     @AfterMethod
     public void logout(){
         app.getNavigationHelper().goToLogout();
-        app.getNavigationHelper().logout();
     }
 
 

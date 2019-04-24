@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All">
-    <test name="SignUp">
+    <!--<test name="SignUp">
         <classes>
             <class name="TestUdacity">
                 <methods>
@@ -8,8 +8,8 @@
                 </methods>
             </class>
         </classes>
-    </test>
-    <test name="Course">
+    </test>-->
+   <!-- <test name="Course">
         <classes>
             <class name="CourseTest">
                 <methods>
@@ -28,8 +28,8 @@
                 </methods>
             </class>
         </classes>
-    </test>
-    <test name="Edit Profile">
+    </test>-->
+    <!--<test name="Edit Profile">
         <classes>
             <class name="EditProfileTest">
                 <methods>
@@ -37,8 +37,8 @@
                 </methods>
             </class>
         </classes>
-    </test>
-    <test name="School">
+    </test>-->
+    <!--<test name="School">
         <classes>
             <class name="SchoolTest">
                 <methods>
@@ -55,7 +55,7 @@
                 </methods>
             </class>
         </classes>
-    </test>
+    </test>-->
     <test name="Check Career and Explore lists">
         <classes>
             <class name="ExploreAndCareerTest">

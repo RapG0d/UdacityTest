@@ -68,7 +68,7 @@ public class CoursePage extends  Page {
     @Step("Check result of search")
     public String checkResult(){
         wait.until(ExpectedConditions.visibilityOf(getResult));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", searchField);
+        scrollScreen(searchField);
         return getResult.getText();
     }
     @Step("Get name some course")
@@ -96,7 +96,7 @@ public class CoursePage extends  Page {
     public void openOtherCourse(){
         wait.until(ExpectedConditions.elementToBeClickable(secondCourse));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@class='modal-close white-shadow']")));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", getFirstCourse);
+        scrollScreen(getFirstCourse);
         secondCourse.click();
     }
     @Step("Open course details click on button")
@@ -131,7 +131,7 @@ public class CoursePage extends  Page {
     public void openVrFoundation(){
         wait.until(ExpectedConditions.elementToBeClickable(vrFoundaitinCourse));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@class='modal-close white-shadow']")));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", getFirstCourse);
+        scrollScreen(getFirstCourse);
         vrFoundaitinCourse.click();
     }
 

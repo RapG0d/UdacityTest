@@ -54,34 +54,6 @@ public class MainPage extends Page {
         wait.until(ExpectedConditions.elementToBeClickable(exploreDropDownMenu)).click();
     }
 
-    @Step("Create our expected list")
-    public List<String> expectedList(){
-
-        ArrayList<String> exploreList = new ArrayList<>();
-
-        exploreList.add("PROGRAMMING AND DEVELOPMENT");
-        exploreList.add("ARTIFICIAL INTELLIGENCE");
-        exploreList.add("DATA SCIENCE");
-        exploreList.add("AUTONOMOUS SYSTEMS");
-        exploreList.add("BUSINESS");
-        exploreList.add("CAREER");
-
-        return exploreList;
-    }
-
-    @Step("Create our expected list")
-    public List<String> expecteList(){
-
-        ArrayList<String> exploreList = new ArrayList<>();
-
-
-        exploreList.add("CAREER PREP");
-        exploreList.add("GET HIRED");
-        exploreList.add("HIRE OUR GRADS");
-
-        return exploreList;
-    }
-
     @Step("Get list from explore drop down menu")
     public List<String> listIntoExploreMenu(){
 

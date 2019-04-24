@@ -24,11 +24,7 @@ public class AttributeHelper extends PageManager {
 
     public String getUserName(){return careerPage.getUserName();}
 
-    public List<String> ourList(){return mainPage.expectedList();}
-
     public List<String> getListExplore(){ return mainPage.listIntoExploreMenu();}
 
     public List<String> getListCareer(){return  mainPage.listIntoCareer();}
-
-    public List<String> getOurFirstList() {return  mainPage.expecteList();}
 }

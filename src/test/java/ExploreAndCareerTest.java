@@ -11,19 +11,19 @@ import java.util.List;
 
 public class ExploreAndCareerTest extends TestBase {
 
-    @Test(description = "Check 2 drop down menu and their lists")
+    @Test(description = "Check 2 drop down menu and their lists", groups = "Lists")
     @Description("Check 2 drop down menu and their lists")
     public void checkExploreAndCareerList(){
         app.getNavigationHelper().openExploreDropDownMenu();
-        List<String> expectedList = app.getAttributeHelper().ourList();
+        List<String> expectedList = expectedList();
         List<String> actualList = app.getAttributeHelper().getListExplore();
         Assert.assertEquals(actualList,expectedList);
     }
 
-    @Test(description = "Check 2 drop down menu and their lists")
+    @Test(description = "Check 2 drop down menu and their lists",groups = "Lists2")
     @Description("Check 2 drop down menu and their lists")
     public void checkCareerList(){
-        List<String> expectedList = app.getAttributeHelper().getOurFirstList();
+        List<String> expectedList = expecteList();
         app.getNavigationHelper().openDropDownMenu();
         List<String> actualList = app.getAttributeHelper().getListCareer();
         Assert.assertEquals(actualList,expectedList);
